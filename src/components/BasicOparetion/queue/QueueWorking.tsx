@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button"; // Importing Button component from the UI library
 import gsap from "gsap"; // Importing GSAP for animations
+import './Queue.css'
 import { useGSAP } from "@gsap/react"; // Importing useGSAP for context-safe GSAP animations
 
 import { CgArrowLongRightC } from "react-icons/cg";
@@ -132,7 +133,7 @@ const LinkListFunction = () => {
             <p className=' flex justify-center items-center text-xl text-white p-5 '>Queue</p>
             <section
             ref={container}
-            className="shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
+            className="QueueScroll
             h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
             >
                 <div className="relative flex">
