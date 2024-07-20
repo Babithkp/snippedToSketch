@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button"; // Importing Button component from the UI library
 import gsap from "gsap"; // Importing GSAP for animations
 import { useGSAP } from "@gsap/react"; // Importing useGSAP for context-safe GSAP animations
-
+import '../LinkList/LinkedListFunction.css';
 import { CgArrowLongRightC } from "react-icons/cg";
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
 
@@ -132,7 +132,7 @@ const LinkListFunction = () => {
             <p className=' flex justify-center items-center text-xl text-white p-5 '>Queue</p>
             <section
             ref={container}
-            className="shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
+            className=" QueueScroll 
             h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
             >
                 <div className="relative flex">
@@ -153,7 +153,8 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2" onClick={generateDefaultList}>
+                            <Button className="md:w-[5rem] p-2 ml-2 mt-7" 
+                            variant={"secondary"}onClick={generateDefaultList}>
                             Create
                             </Button>
                         </div>
@@ -171,7 +172,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={enqueue}>
+                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2 mt-7"
+                            variant={"secondary"}
+                            onClick={enqueue}>
                            Enqueue
                             </Button>
                         </div>
@@ -181,7 +184,9 @@ const LinkListFunction = () => {
                             <span className="text-md font-medium flex items-center">
                             Delete from Queue
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={dequeue}>
+                            <Button className="md:w-[7rem]  p-2 ml-2 mt-7" 
+                            variant={"secondary"}
+                            onClick={dequeue}>
                            Dequeue
                             </Button>
                         </div>
@@ -216,7 +221,7 @@ const LinkListFunction = () => {
                                         <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-green-500 text-center">Front</div>
                                     )}
                                     {i === noOfList.length - 1 && (
-                                        <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-red-500 text-center">Rare</div>
+                                        <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-red-500 text-center">Rear</div>
                                     )}
                             </div>
                             <div className="text-lg font-medium absolute left-8 text-center text-white">{i}</div>
