@@ -20,7 +20,7 @@ const LinkListFunction = () => {
     const [defaultText, setDefaultText] = useState(true); // State for showing default text
     const container = useRef<HTMLDivElement>(null); // Ref for the container element
     const [noOfList, setNoOfList] = useState<ListItem[]>([]); // State for the list of items
-    const [createNumber, setCreateNumber] = useState<number | string>(5); // State for number of items to create
+    const [createNumber, setCreateNumber] = useState<number | string>(4); // State for number of items to create
     const [appendNumber, setAppendNumber] = useState<number | string>(6); // State for number to append
     const [appendNumber1, setAppendNumber1] = useState<number | string>(0); // State for number to append at the start
     const [insertNumber, setInsertNumber] = useState<number | string>(3); // State for number to insert
@@ -272,8 +272,7 @@ const LinkListFunction = () => {
             <p className=' flex justify-center items-center text-xl text-white p-5 '>Linked List</p>
             <section
             ref={container}
-            className=" shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]
-            h-[400px] mx-4 md:mx-8 flex justify-between rounded-lg bg-black border-2 border-solid border-white"
+            className="HorizontalScroller"
             >
                 <div className="relative flex">
                 <div className={`border-white border-r-2 border-solid bg-black text-white rounded-sm transition-all duration-300 ${isOpen ? 'w-96' : 'w-0 overflow-hidden'}`}>
@@ -293,7 +292,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[5rem] hover:scale-100 p-2 ml-2" onClick={generateDefaultList}>
+                            <Button className="md:w-[5rem] p-2 ml-2"
+                            variant={"secondary"}
+                            onClick={generateDefaultList}>
                             Create
                             </Button>
                         </div>
@@ -311,7 +312,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElementFirst}>
+                            <Button className=" md:w-[7rem] p-2 ml-2"
+                            variant={"secondary"}
+                            onClick={appendOneElementFirst}>
                             front
                             </Button>
                         </div>
@@ -329,7 +332,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={appendOneElement}>
+                            <Button className= " md:w-[7rem]  p-2 ml-2"
+                            variant={"secondary"}
+                            onClick={appendOneElement}>
                             rear
                             </Button>
                         </div>
@@ -356,7 +361,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={insertOneElement}>
+                            <Button className="md:w-[7rem]  p-2 ml-2" 
+                            variant={"secondary"}
+                            onClick={insertOneElement}>
                             middle
                             </Button>
                         </div>
@@ -367,10 +374,14 @@ const LinkListFunction = () => {
                             Delete element at =
                             </span>
                             <div className="flex gap-2 ml-2">
-                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromFront}>
+                            <Button className="  md:w-[7rem]  p-2"
+                            variant={"secondary"}
+                            onClick={deleteFromFront}>
                                 Front
                             </Button>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromRear}>
+                            <Button className=" md:w-[7rem]  p-2"
+                            variant={"secondary"}
+                            onClick={deleteFromRear}>
                                 Rear
                             </Button>
                             </div>
@@ -390,7 +401,9 @@ const LinkListFunction = () => {
                             />
                             </span>
                             <div className="flex flex-col gap-2 ml-2">
-                            <Button className="md:w-[7rem] hover:scale-100 p-2" onClick={deleteFromMiddle}>
+                            <Button className=" md:w-[7rem] p-2" 
+                            variant={"secondary"}
+                            onClick={deleteFromMiddle}>
                                 Middle
                             </Button>
                             </div>
@@ -409,7 +422,9 @@ const LinkListFunction = () => {
                                 max="100"
                             />
                             </span>
-                            <Button className="md:w-[7rem] hover:scale-100 p-2 ml-2" onClick={searchElement}>
+                            <Button className=" md:w-[7rem] p-2 ml-2"
+                            variant={"secondary"}
+                            onClick={searchElement}>
                             Search
                             </Button>
                         </div>
@@ -426,60 +441,60 @@ const LinkListFunction = () => {
                 </button>
             </div>
 
-            <div className="flex flex-wrap  justify-center border-2 items-center flex-grow">
+            <div className="flex flex-wrap  justify-center  items-center flex-grow">
                 {defaultText && (
                 <span className=" flex items-center w-full h-full  justify-center text-2xl font-medium text-center text-white">
                     Click an Operation to view the Linked List
                 </span>
                 )}
                 
-                <div className=" w-full h-full flex justify-center items-center">
-                    {noOfList.map((ele, i) => (
-                        <div key={ele.id} className="relative  scrollerLinklist m-5">
-                        { i < noOfList.length - 1 && <div
-                            style={{
-                            position: 'absolute',
-                            height: '2px',
-                            width: '80px', // Adjust width based on spacing between boxes mate 
-                            backgroundColor: 'white',
-                            top: '2.5rem',
-                            left: '6rem', // Adjust positioning to connect the line to the right side of the box for your own mate 
-                            transform: 'translateY(-50%)',
-                            }}
-                        >
-                        </div>
-                        }
-
-                        <div className="relative w-[122px] border-gray-400 border-4 p-1 rounded-md">
-                            {/* Non-animated vertical line */}
-                            <div
-                                className="absolute"
+                    <div className=" w-full h-full flex justify-center items-center border-2 ">
+                        {noOfList.map((ele, i) => (
+                            <div key={ele.id} className="relative  scrollerLinklist m-5">
+                            { i < noOfList.length - 1 && <div
                                 style={{
-                                top: 0,
-                                bottom: 0,
-                                left: '4rem',
-                                borderLeft: '2px solid white',
-                                transform: 'translateX(-50%)',
-                                zIndex: 10, // Ensures the line is above the content
+                                position: 'absolute',
+                                height: '2px',
+                                width: '80px', // Adjust width based on spacing between boxes mate 
+                                backgroundColor: 'white',
+                                top: '2.5rem',
+                                left: '6rem', // Adjust positioning to connect the line to the right side of the box for your own mate 
+                                transform: 'translateY(-50%)',
                                 }}
-                            ></div>
+                            >
+                            </div>
+                            }
 
-                            {/* Animated box */}
-                                <div className={`${boxClassVariable} box box${ele.id} relative`}>
-                                    {ele.value.toString()}
-                                </div>
-                                {i === 0 && (
-                                    <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-green-500 text-center">Head</div>
-                                )}
-                                {i === noOfList.length - 1 && (
-                                    <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-red-500 text-center">Tail</div>
-                                )}
+                            <div className="relative w-[122px] border-gray-400 border-4 p-1 rounded-md">
+                                {/* Non-animated vertical line */}
+                                <div
+                                    className="absolute"
+                                    style={{
+                                    top: 0,
+                                    bottom: 0,
+                                    left: '4rem',
+                                    borderLeft: '2px solid white',
+                                    transform: 'translateX(-50%)',
+                                    zIndex: 10, // Ensures the line is above the content
+                                    }}
+                                ></div>
+
+                                {/* Animated box */}
+                                    <div className={`${boxClassVariable} box box${ele.id} relative`}>
+                                        {ele.value.toString()}
+                                    </div>
+                                    {i === 0 && (
+                                        <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-green-500 text-center">Head</div>
+                                    )}
+                                    {i === noOfList.length - 1 && (
+                                        <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-12 text-xl text-red-500 text-center">Tail</div>
+                                    )}
+                            </div>
+                                <div className="text-lg font-medium absolute left-8 text-center text-white">{i}</div>
                         </div>
-                            <div className="text-lg font-medium absolute left-8 text-center text-white">{i}</div>
+                        ))}
                     </div>
-                    ))}
                 </div>
-            </div>
             </section>
 
 
